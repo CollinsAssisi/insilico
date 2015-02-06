@@ -37,7 +37,7 @@ namespace insilico {
       double phi = pow(3,(temperature - 36)/10); //temperature correction factor
 
       int v_index = engine::neuron_index(index,"v_LocustInterneuron_CA2011");
-      int n_index = engine::neuron_index(index,"n_LocustInterneuron_CA2011");
+      int n_index = engine::neuron_index(index,"n_KFast_LocustInterneuron_CA2011");
 
       double v = variables[v_index];
       double n = variables[n_index];
@@ -56,5 +56,5 @@ namespace insilico {
 
 
     }//function current
-  }//class I_KFast_LocustInterneuron_CA2011{
+  };//class I_KFast_LocustInterneuron_CA2011{
 }//insilico
