@@ -31,10 +31,10 @@ namespace insilico {
   class I_KFast_LocustInterneuron_CA2011{
   public:
     static void current(state_type &variables, state_type &dxdt, const double t, int index){
-      double gk = 10; //(microSiemens)
-      double ek = -95; //(milliVolt)
-      double temperature = 22; //(celsius)
-      double phi = pow(3,(temperature - 36)/10); //temperature correction factor
+      double gk = 10.0; //(microSiemens)
+      double ek = -95.0; //(milliVolt)
+      double temperature = 22.0; //(celsius)
+      double phi = pow(3,(temperature - 36.0)/10.0); //temperature correction factor
 
       int v_index = engine::neuron_index(index,"v_LocustInterneuron_CA2011");
       int n_index = engine::neuron_index(index,"n_KFast_LocustInterneuron_CA2011");
