@@ -1,8 +1,7 @@
 #
 #  Makefile - nsim project source compilation
 #
-#  Copyright (C) 2014 Collins Assisi, Collins Assisi Lab, IISER, Pune
-#  Copyright (C) 2014 Pranav Kulkarni, Collins Assisi Lab, IISER, Pune <pranavcode@gmail.com>
+#  Copyright (C) 2015 Pranav Kulkarni, Collins Assisi Lab, IISER, Pune <pranavcode@gmail.com>
 #
 #  This program is free software: you can redistribute it and/or modify
 #  it under the terms of the GNU General Public License as published by
@@ -25,7 +24,7 @@ SOURCE = main.cpp
 TARGET = insilico.out
 
 # Compiler to use
-CC = g++
+CC = g++ # mpic++
 
 # Windows specific compiler flags
 ifdef SystemRoot
@@ -33,7 +32,8 @@ ifdef SystemRoot
 endif
 
 # Flags to specify the compilation startegy
-CFLAGS = -O3 -std=c++11 -Wall -Iinclude -o
+CFLAGS = $(MPIFLAG)
+CFLAGS += -O3 -std=c++11 -Wall -I../../include -o
 
 all: $(TARGET)
 

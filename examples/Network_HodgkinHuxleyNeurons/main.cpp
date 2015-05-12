@@ -1,10 +1,11 @@
 /*
-  main.cpp - Integrate and Fire neuron example's main()
+  main.cpp - insilico's example using neuron and synapse for illustrations
 
-  Copyright (C) 2015 Pranav Kulkarni, Collins Assisi Lab,
-                     IISER, Pune <pranavcode@gmail.com>
-  Copyright (C) 2015 Himanshu Rajmane, Suhita Nadkarni Lab,
-                     IISER, Pune <himanshu14121992@gmail.com>
+  Copyright (C) 2014 Collins Assisi, Collins Assisi Lab, IISER, Pune
+  Copyright (C) 2014 Arun Neru, Collins Assisi Lab,
+                     IISER, Pune <areinsdel@gmail.com>
+  Copyright (C) 2014-2015 Pranav Kulkarni, Collins Assisi Lab,
+                          IISER, Pune <pranavcode@gmail.com>
 
   This program is free software: you can redistribute it and/or modify
   it under the terms of the GNU General Public License as published by
@@ -22,18 +23,18 @@
 
 #include "insilico/core.hpp"
 
-#include "insilico/neuron/helper/spike_list.hpp"
-#include "insilico/neuron/N_LIF_S1967.hpp"
-#include "insilico/synapse/S_LIF_Synapse.hpp"
+#include "insilico/neuron/helper/spike_list.hpp" //storing spike-list
+#include "insilico/neuron/N_SquidAxon_HH1952.hpp"
+#include "insilico/synapse/S_DefaultSynapse.hpp"
 
 #include <boost/numeric/odeint.hpp>
+
 #include <fstream>
 #include <iostream>
 #include <iomanip>
 #include <string>
 #include <vector>
 
-using namespace boost;
 using namespace insilico;
 using namespace std;
 
@@ -41,19 +42,14 @@ int main(int argc, char **argv) {
   configuration::initialize(argc, argv);
   configuration::observe("v");
 
-  // 2 N_LIF_S1967 neurons
-  engine::generate_neuron<N_LIF_S1967>(2);
-  // Single S_LIF_Synapse synapse between our two LIF neurons
-  engine::generate_synapse<S_LIF_Synapse>();
-
-  // Spike list maintains neuron specific spike information
-  // In our case we have two neurons
+  engine::generate_neuron<N_SquidAxon_HH1952>(2);
+  engine::generate_synapse<S_DefaultSynapse>(2);
   engine::spike_list.resize(2);
 
   state_type variables = engine::get_variables();
   integrate_const(boost::numeric::odeint::runge_kutta4<state_type>(),
                   engine::driver(), variables,
-                  0.0, 50.0, 0.01, configuration::observer());
+                  0.0, 100.0, 0.05, configuration::observer());
 
   configuration::finalize();
 }

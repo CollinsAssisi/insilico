@@ -1,8 +1,7 @@
 #
-#  Makefile - nsim project source compilation
+#  examples/Makefile - insilico examples build script
 #
-#  Copyright (C) 2014 Collins Assisi, Collins Assisi Lab, IISER, Pune
-#  Copyright (C) 2014 Pranav Kulkarni, Collins Assisi Lab, IISER, Pune <pranavcode@gmail.com>
+#  Copyright (C) 2015 Pranav Kulkarni, Collins Assisi Lab, IISER, Pune <pranavcode@gmail.com>
 #
 #  This program is free software: you can redistribute it and/or modify
 #  it under the terms of the GNU General Public License as published by
@@ -18,24 +17,10 @@
 #  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 
-# Source files
-SOURCE = main.cpp
-
-# Target excutables
-TARGET = insilico.out
-
-# Compiler to use
-CC = g++
-
-# Windows specific compiler flags
-ifdef SystemRoot
-   CC += -IC:\MinGW\libexec\gcc -D__NO_INLINE__
-endif
-
-# Flags to specify the compilation startegy
-CFLAGS = -O3 -std=c++11 -Wall -Iinclude -o
-
-all: $(TARGET)
-
-$(TARGET):
-	$(CC) $(CFLAGS) $(TARGET) $(SOURCE)
+all:
+	cd SingleNeuron_HH1952; make -B
+	cd Network_HodgkinHuxleyNeurons; make -B
+	cd SingleNeuron_InjectedCurrent; make -B
+	cd IntegrateAndFire_S1967; make -B
+	cd SingleNeuron_HH1952_Stochastic; make -B
+#	cd SingleNeuron_HH1952_MPI; make -B CC=mpic++ MPIFLAG=-DINSILICO_MPI_ENABLE

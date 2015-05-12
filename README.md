@@ -1,29 +1,17 @@
+`insilico`
+========
 
-```insilico``` - Neuronal Simulation Library
-============================================
+![GNU GPLv3 License](http://img.shields.io/badge/license-GPLv3-green.svg)
+[![insilico Trello](https://img.shields.io/badge/Trello-insilico-blue.svg)](https://trello.com/b/lkXzPGqD/insilico)
 
-Official homepage: http://www.iiserpune.ac.in/~collins/insilico/
+`insilico` is a Computational Neuroscience simulation library written in C++. `insilico` encourages ready-to-start approach for quick setup of simulation environment, without hindering programmers time and focus from intended experiment.
 
-Software Pre-requisites
------------------------
+Library homepage: http://www.iiserpune.ac.in/~collins/insilico/
 
-```insilico``` is written in C++ and uses C++11 standard of the langauge. Also, integration-of-ODE part of the library is handled using Boost.
+Install
+=======
 
-* Boost 1.56.0+ - for ODE integrator Boost.odeint
-* g++ 4.8.1+ - for compilation with C++11 support
-* make 3.8+ - building
-
-(Optionally)
-* Python 2.7+ - if you want to use scripts for generating input files
-* Gnuplot - if you want to use scripts for plotting simulation results
-
-The installation of above softwares for all platforms is expected to be in standard directories. Please do any essential manual changes are required to the environment for using this library.
-
-Addition to these, programmers who wish to contribute may need following packages as well.
-
-* PHP 5+ - web documentation and site
-* Python 2.7+ - automated scripts
-* Gnuplot 4.5+ - plotting
+Please refer to `doc/INSTALL` file.
 
 Build
 =====
@@ -32,88 +20,22 @@ Clone the source and run the following commands on terminal.
 ```
    make SOURCE="path/to/source/file/with/main_function.cpp"
 ```
-Input and Output files
-======================
-
-Makefile generates the executable for the program which can accept three parameters as given below.
-
-**1st Parameter is Output file**
-
-  Simulation results will be written to this file as comma separated values in following format for each line of output.
-```
-  time-step , variable-1 , variable-2 , variable-3 , ... , variable-n
-```
-  - ```time-step```: current time-step
-  
-  - ```variable-1``` to ```variable-n```: all the varible values that are provided to insilico::configuration::observer
-
-**2nd Parameter is Neuron file**
-
-  Neurons taking part in simulation. Every line represents a Neuron.
-
-**3rd Parameter is Synapse file**
-
-  Synapse taking part in simulation. This input file is optional argument if there is no synapse in the simulation. Every line represents a synapse.
-
-  Both the above parameter files has their specification as comma separated key:value pair(s) in the following format on each line.
-```
-  dxdt:<ODE-vars> , <var1>:<init> , <var2>:<init> , ... , <varN>:<init> ;
-```
-  - ```dxdt:<ODE-vars>```: denotes the count of ODE variables, all the variables for ODEs in the simulation code should satisfy their count and the value replacing <ODE-vars> and those many variables should follow immediately after ('dxdt' is a library keyword, <ODE-vars> should be replaced by positive integer)
-  
-  - ```<var1>:<init>``` to ```<varN>:<init>```: variables to be used in simulation with initial values (<var1> to <varN> should be replaced by desired variable name and <init> should be replaced by initial values of the respective variables), in the case of Synapse file variabled 'pre' and 'post' are mandatory with pre-synaptic and post-synaptic neuron indices as their values respectively
-
-*Commenting in input files is supported and can be enclosed in ```""``` (double quotes)*
-
 Execute
 =======
 
 Run the following command on terminal to execute the code.
-
-* Linux / Mac OS
 ```
-  $ ./insilico.out <outputfile>.dat <neuron_file>.conf [<synapse_file>.conf]
+  insilico.out -o <output_file>.csv -n <neuron_file.isf> -s <synapse_file.isf> -e <external_file.isfc>
+
+  Options:
+    -o   Output file
+    -n   Neuron configuration file
+    -s   Synapse configuration file (optional)
+    -e   External current configuration file (optional)
 ```
-* Windows
-```
-  $ .\insilico.out <outputfile>.dat <neuron_file>.conf [<synapse_file>.conf]
-```
-Platforms
-=========
-
-We wish to make this library platform independent. The known minimum versions for a given platforms or compatible platforms:
-
-|OS     | Version        |
-|-------|----------------|
-|Linux  | Ubuntu 11.04 + |
-|Mac    | OS X +         |
-|Windows| XP +           |
-
-*Library is developed majorly on Linux platform.*
-
-Version
-=======
-
-Current version: ```0.16```
-
-Please refer to ```VERSION``` file for your source.
-
-Contributing
-============
-
-Please refer to ```CONTRIBUTION``` file.
-
-Maintainers
-===========
-
-Please refer to ```MAINTAINERS``` file.
-
-Release Notes
-=============
-
-Please refer to ```RELEASES``` file.
+Please read `doc/FILES` file for details about the input and output files and their formats.
 
 License
 =======
 
-This simulation library is licensed under GNU GPLv3 which is described in file LICENSE found in home directory of this project.
+This simulator library is licensed under GNU GPLv3 which can be found in `LICENSE` file under home directory of this project.

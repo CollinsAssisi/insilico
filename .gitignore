@@ -1,8 +1,15 @@
 # Output files
+*.exp
 *.tmp
 *.log
 *.dat
+*.csv
 output/*
+.ids
+
+# Image files
+*.jpeg
+*.jpg
 
 # Compiled Object files
 *.slo
@@ -32,3 +39,15 @@ output/*
 *.exe
 *.out
 *.app
+
+# Mac specific
+.DS_store
+*~
+
+# Eclipse specific
+.cproject
+.project
+.settings
+
+# Idea specific
+.idea
