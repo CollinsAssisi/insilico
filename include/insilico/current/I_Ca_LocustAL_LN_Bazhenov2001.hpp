@@ -49,6 +49,7 @@ namespace insilico{
       }
       //ODE
       dxdt[ca_index] = drive + (ca_inf - ca)/tau_r;
+
     }//function current
   }//class I_Ca_LocustAL_LN_Bazhenov2001
 }//insilico

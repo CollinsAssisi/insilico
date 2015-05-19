@@ -60,7 +60,7 @@ namespace insilico {
       dxdx[m_index] = -(m - m_inf)/tau_m;
       dxdx[m_index] = -(h - h_inf)/tau_h;
       //Current
-      engine::neuron_value(index, "I_Na_LocustAL_PN_Bazhenov2001", gna*pow(m,3)*h*(v - ena))
+      engine::neuron_value(index, "I_Na_LocustAL_PN_Bazhenov2001", ( gna * pow ( m , 3 ) * h * ( v - ena ) ) );
 
     }
   }
