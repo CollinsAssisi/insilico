@@ -1,5 +1,5 @@
 /*
- current/I_KCA_LocustAL_LN_Bazhenov2001.hpp - Calcium dependent Potassium current
+ current/I_KLeak_LocustAL_LN_Bazhenov.hpp
 
  Copyright (C) 2014 Pranav Kulkarni, Collins Assisi Lab, IISER, Pune <pranavcode@gmail.com>
 
@@ -20,46 +20,29 @@
 /*
  Brief:
 
- */
-#ifndef I_KCA_LOCUSTAL_LN_BAZHENOV2001
-#define I_KCA_LOCUSTAL_LN_BAZHENOV2001
+ Current that flows through Potassium (K) channel due to the potential difference
+ caused by Potassium (K) conductance across neuronal membrane. (Hodgkin-Huxley, 1952)
+*/
+
+#ifndef I_KLEAK_LOCUSTAL_LN_BAZHENOV2001_HPP
+#define I_KLEAK_LOCUSTAL_LN_BAZHENOV2001_HPP
 
 #include "insilico/core/engine.hpp"
 
 namespace insilico{
-  class I_KCA_LocustAL_LN_Bazhenov2011{
+  class I_KLeak_LocustAL_LN_Bazhenov2001{
   public:
     static void current(state_type &variables, state_type &dxdt, const double t, int index){
-      
-      double gkca = 0.3;
-      double ekca = -90.0;
-      double Q = 2.3;
-      double Ra = 0.01;
-      double Rb = 0.02;
-      double cels = 23;
-      double Tad = pow(Q,((cels -23.0)/10.0));
+      double gkl = 0.02;
+      double ekl = -95;
 
       int v_index = engine::neuron_index(index,"v");
-      int m_index = engine::neuron_index(index,"m_KCA");
-      int ca_index = engine::neuron_index(index,"I_Ca_LocustAL_LN_Bazhenov2001");
-
       double v = variables[v_index];
-      double m = variables[m_index];
-      double ca = variables[ca_index];
-
-      double a = Ra*ca;
-      double b = Rb;
-      double tau_m = (1/(a + b))/Tad;
-      double m_inf = a/(a + b);
-
-      //ODE
-      dxdt[m_index] = -(1/tau_m)*(m - m_inf);
 
       //Current
-      engine::neuron_value(index,"I_KCA_LocustAL_LN_Bazhenov2001",(Tad * gkca * m * ( v - ekca )) );
+      engine::neuron_value(index,"I_KLeak_LocustAL_LN_Bazhenov2001",(gkl * (v - ekl)));
 
-
-    }//current
-  };//class I_KCA_LocustAL_LN_Bazhenov2001
-}//namespace insilico
+    }
+  };
+}
 #endif

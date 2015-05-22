@@ -38,16 +38,16 @@ namespace insilico{
       double cels = 23.0;
       double phi = pow(3,((cels - 36.0)/10.0));
 
-      int v_index = engine::neuron_index(index,"v_LocustAL_LN_Bazhenov2001");
-      int n_index = engine::neuron_index(index,"n_I_Kv_LocustAL_LN_Bazhenov2001");
+      int v_index = engine::neuron_index(index,"v");
+      int n_index = engine::neuron_index(index,"n_Kv");
 
       double v = variables[v_index];
       double n = variables[n_index];
 
       double v_shift = v - shift;
 
-      double alpha = 0.02*(15.0 - vshift)/(exp((15.0 - v2)/5.0) - 1.0);
-      double beta = 0.5*exp((10.0 - vshift)/40.0);
+      double alpha = 0.02*(15.0 - v_shift)/(exp((15.0 - v_shift)/5.0) - 1.0);
+      double beta = 0.5*exp((10.0 - v_shift)/40.0);
 
       double tau_n = 1/(alpha + beta)/phi;
       double n_inf = alpha/(alpha + beta);
@@ -56,8 +56,9 @@ namespace insilico{
       dxdt[n_index] = -(n - n_inf)/tau_n;
 
       //current
-      engine::current_value(index, "I_Kv_LocustAL_LN_Bazhenov2001", ( gkv * pow ( n , 4 ) * ( v - ekv ) ) );
+      engine::neuron_value(index, "I_Kv_LocustAL_LN_Bazhenov2001", ( gkv * pow ( n , 4 ) * ( v - ekv ) ) );
 
     }//current
-  }//class I_Kv_LocustAL_LN_Bazhenov2001  
+  };//class I_Kv_LocustAL_LN_Bazhenov2001  
 }//namespace insilico
+#endif

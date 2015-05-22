@@ -1,0 +1,29 @@
+"Network of Projection neurons and inibitory interneurons in the Locust antennal lobe. Based on the paper by Bazhenov et. al Neuron 2001"
+
+"neuron 1: Local Inhibitory interneuron"
+	dxdt:6
+	"membrane potential"
+	v:-65.0
+
+	"Low threshod Calcium current"
+	m_LTCA:0.0,
+	h_LTCA:0.0,
+
+	"Calcium dynamics"
+	I_Ca_LocustAntennalLobe_LN_Bazhenov2001:0.0,
+
+	"Calcium dependent Potassium current"
+	m_KCa:0.0,
+
+	"Fast Potassium current"
+	n_Kv:0.0,
+
+	"Potassium leak current"
+	I_KLeak_LocustAL_LN_Bazhenov2001:0.0,	
+
+	"Leak current"
+	I_Leak_LocustAL_LN_Bazheno2001:0.0,	
+
+	"External Input"
+	IExt:0.0001,
+	

@@ -1,0 +1,57 @@
+
+In file included from ../../include/insilico/neuron/BazhenovNeuron2001a/N_LocustAL_LN_Bazhenov2001.hpp:26:0,
+                 from /data/insilico/examples/LocustAntennalLobe_Bazhenov2001/main.cpp:22:
+../../include/insilico/current/BazhenovNeuron2001a/I_Kv_LocustAL_LN_Bazhenov2001.hpp: In static member function ‘static void insilico::I_Kv_LocustAL_LN_Bazhenov2001::current(insilico::state_type&, insilico::state_type&, double, int)’:
+../../include/insilico/current/BazhenovNeuron2001a/I_Kv_LocustAL_LN_Bazhenov2001.hpp:49:35: error: ‘vshift’ was not declared in this scope
+../../include/insilico/current/BazhenovNeuron2001a/I_Kv_LocustAL_LN_Bazhenov2001.hpp:49:56: error: ‘v2’ was not declared in this scope
+../../include/insilico/current/BazhenovNeuron2001a/I_Kv_LocustAL_LN_Bazhenov2001.hpp:59:7: error: ‘current_value’ is not a member of ‘insilico::engine’
+../../include/insilico/current/BazhenovNeuron2001a/I_Kv_LocustAL_LN_Bazhenov2001.hpp:47:14: warning: unused variable ‘v_shift’ [-Wunused-variable]
+In file included from ../../include/insilico/neuron/BazhenovNeuron2001a/N_LocustAL_LN_Bazhenov2001.hpp:27:0,
+                 from /data/insilico/examples/LocustAntennalLobe_Bazhenov2001/main.cpp:22:
+../../include/insilico/current/BazhenovNeuron2001a/I_LTCA_LocustAL_LN_Bazhenov2001.hpp: In static member function ‘static void insilico::I_LTCA_LocustAL_LN_Bazhenov2001::current(insilico::state_type&, insilico::state_type&, double, int)’:
+../../include/insilico/current/BazhenovNeuron2001a/I_LTCA_LocustAL_LN_Bazhenov2001.hpp:41:18: error: ‘variable’ was not declared in this scope
+../../include/insilico/current/BazhenovNeuron2001a/I_LTCA_LocustAL_LN_Bazhenov2001.hpp:55:7: error: ‘current_value’ is not a member of ‘insilico::engine’
+In file included from ../../include/insilico/neuron/BazhenovNeuron2001a/N_LocustAL_LN_Bazhenov2001.hpp:28:0,
+                 from /data/insilico/examples/LocustAntennalLobe_Bazhenov2001/main.cpp:22:
+../../include/insilico/current/BazhenovNeuron2001a/I_Leak_LocustAL_LN_Bazhenov2001.hpp: In static member function ‘static void insilico::I_Leak_LocustAL_LN_Bazhenov2001::current(insilico::state_type&, insilico::state_type&, double, int)’:
+../../include/insilico/current/BazhenovNeuron2001a/I_Leak_LocustAL_LN_Bazhenov2001.hpp:37:7: error: ‘gl’ was not declared in this scope
+../../include/insilico/current/BazhenovNeuron2001a/I_Leak_LocustAL_LN_Bazhenov2001.hpp:38:7: error: ‘el’ was not declared in this scope
+../../include/insilico/current/BazhenovNeuron2001a/I_Leak_LocustAL_LN_Bazhenov2001.hpp:40:7: error: ‘v_index’ was not declared in this scope
+../../include/insilico/current/BazhenovNeuron2001a/I_Leak_LocustAL_LN_Bazhenov2001.hpp:41:7: error: ‘v’ was not declared in this scope
+../../include/insilico/current/BazhenovNeuron2001a/I_Leak_LocustAL_LN_Bazhenov2001.hpp:44:7: error: ‘current_value’ is not a member of ‘insilico::engine’
+In file included from /data/insilico/examples/LocustAntennalLobe_Bazhenov2001/main.cpp:22:0:
+../../include/insilico/neuron/BazhenovNeuron2001a/N_LocustAL_LN_Bazhenov2001.hpp: At global scope:
+../../include/insilico/neuron/BazhenovNeuron2001a/N_LocustAL_LN_Bazhenov2001.hpp:74:3: error: expected ‘;’ after class definition
+../../include/insilico/neuron/BazhenovNeuron2001a/N_LocustAL_LN_Bazhenov2001.hpp: In member function ‘virtual void insilico::N_LocustAL_LN_Bazhenov2001::ode_set(insilico::state_type&, insilico::state_type&, double, unsigned int)’:
+../../include/insilico/neuron/BazhenovNeuron2001a/N_LocustAL_LN_Bazhenov2001.hpp:61:7: error: ‘I_KCA_LocustAL_LN_Bazhenov2001’ has not been declared
+../../include/insilico/neuron/BazhenovNeuron2001a/N_LocustAL_LN_Bazhenov2001.hpp:65:7: error: ‘I_KLeak_LocustAL_LN_Bazhenov2001’ has not been declared
+../../include/insilico/neuron/BazhenovNeuron2001a/N_LocustAL_LN_Bazhenov2001.hpp:72:23: error: ‘I_Ext’ was not declared in this scope
+/data/insilico/examples/LocustAntennalLobe_Bazhenov2001/main.cpp: In function ‘int main(int, char**)’:
+/data/insilico/examples/LocustAntennalLobe_Bazhenov2001/main.cpp:39:19: error: ‘runge_kutta’ is not a member of ‘boost::numeric::odeint’
+/data/insilico/examples/LocustAntennalLobe_Bazhenov2001/main.cpp:39:65: error: expected primary-expression before ‘>’ token
+/data/insilico/examples/LocustAntennalLobe_Bazhenov2001/main.cpp:39:67: error: expected primary-expression before ‘)’ token
+/data/insilico/examples/LocustAntennalLobe_Bazhenov2001/main.cpp:41:46: error: ‘integrate_const’ was not declared in this scope
+/data/insilico/examples/LocustAntennalLobe_Bazhenov2001/main.cpp:41:46: note: suggested alternatives:
+In file included from /usr/local/include/boost/numeric/odeint.hpp:69:0,
+                 from ../../include/insilico/core/engine/generate.hpp:26,
+                 from ../../include/insilico/core/engine/serial.hpp:26,
+                 from ../../include/insilico/core/engine.hpp:26,
+                 from ../../include/insilico/core/configuration/serial.hpp:24,
+                 from ../../include/insilico/core/configuration.hpp:27,
+                 from ../../include/insilico/core.hpp:23,
+                 from /data/insilico/examples/LocustAntennalLobe_Bazhenov2001/main.cpp:21:
+/usr/local/include/boost/numeric/odeint/integrate/integrate_const.hpp:113:8: note:   ‘boost::numeric::odeint::integrate_const’
+In file included from /usr/local/include/boost/numeric/odeint/integrate/detail/integrate_adaptive.hpp:28:0,
+                 from /usr/local/include/boost/numeric/odeint/integrate/integrate_adaptive.hpp:25,
+                 from /usr/local/include/boost/numeric/odeint/integrate/integrate.hpp:26,
+                 from /usr/local/include/boost/numeric/odeint.hpp:67,
+                 from ../../include/insilico/core/engine/generate.hpp:26,
+                 from ../../include/insilico/core/engine/serial.hpp:26,
+                 from ../../include/insilico/core/engine.hpp:26,
+                 from ../../include/insilico/core/configuration/serial.hpp:24,
+                 from ../../include/insilico/core/configuration.hpp:27,
+                 from ../../include/insilico/core.hpp:23,
+                 from /data/insilico/examples/LocustAntennalLobe_Bazhenov2001/main.cpp:21:
+/usr/local/include/boost/numeric/odeint/integrate/detail/integrate_const.hpp:102:8: note:   ‘boost::numeric::odeint::detail::integrate_const’
+make[1]: *** [insilico.out] Error 1
+make: *** [all] Error 2

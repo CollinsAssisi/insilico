@@ -37,9 +37,9 @@ namespace insilico {
       double phi = pow(3,((cels-36)/10.0));//temperature based correction factor
       double vtr = -50.0; //shift of membrane potential
 
-      int v_index = engine::neuron_index(index,"v_LocustAL_PN_Bazhenov2001");
-      int m_index = engine::neuron_index(index,"m_LocustAL_PN_Bazhenov2001");
-      int h_index = engine::neuron_index(index,"h_LocustAL_PN_Bazhenov2001");
+      int v_index = engine::neuron_index(index,"v");
+      int m_index = engine::neuron_index(index,"m_Na");
+      int h_index = engine::neuron_index(index,"h_Na");
 
       double v = variables[v_index];
       double v_shifted = v -vtr;
@@ -63,5 +63,6 @@ namespace insilico {
       engine::neuron_value(index, "I_Na_LocustAL_PN_Bazhenov2001", ( gna * pow ( m , 3 ) * h * ( v - ena ) ) );
 
     }
-  }
+  };
 }
+#endif

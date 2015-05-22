@@ -36,9 +36,9 @@ namespace insilico{
       double cels = 36.0;
       double tad = pow(3.0,((cels - 23.0)/10.0));
 
-      int v_index = engine::neuron_index(index,"v_LocustAL_PN_Bazhenov2001");
-      int m_index = engine::neuron_index(index,"m_I_KA_LocustAL_PN_Bazhenov2001");
-      int h_index = engine::neuron_index(index,"h_I_KA_LocustAL_PN_Bazhenov2001");
+      int v_index = engine::neuron_index(index,"v");
+      int m_index = engine::neuron_index(index,"m_KA");
+      int h_index = engine::neuron_index(index,"h_KA");
 
       double v = variables[v_index];
       double m = variables[m_index];
@@ -60,5 +60,6 @@ namespace insilico{
       engine::neuron_value(index, "I_KA_LocustAL_PN_Bazhenov2001", ( gka * pow ( m , 4.0 ) * h * ( v - eka ) ))
 
     }//current
-  }//class I_KA_LocustAL_PN_Bazhenov2001
+  };//class I_KA_LocustAL_PN_Bazhenov2001
 }//namespace insilico
+#endif

@@ -33,14 +33,14 @@ namespace insilico{
       double eca = 140.0; //mV
       double gca = 2.0; //muS
 
-      int v_index = engine::neuron_index(index,"v_LocustAL_LN_Bazhenov2001");
-      int m_index = engine::neuron_index(index,"m_LTCA_LocustAL_LN_Bazhenov2001");
-      int h_index = engine::neuron_index(index,"h_LTCA_LocustAL_LN_Bazhenov2001");
+      int v_index = engine::neuron_index(index,"v");
+      int m_index = engine::neuron_index(index,"m_LTCA");
+      int h_index = engine::neuron_index(index,"h_LTCA");
 
 
-      double v = variable[v_index];
-      double m = variable[m_index];
-      double h = variable[m_index];
+      double v = variables[v_index];
+      double m = variables[m_index];
+      double h = variables[m_index];
 
       double m_inf = 1.0/(1.0 + exp(-(v + 20.0)/6.5));
       double h_inf = 1.0/(1.0 + exp((v + 25.0)/12.0));
@@ -52,8 +52,9 @@ namespace insilico{
       dxdt[h_index] = -1/tau_h*(h - h_inf);
 
       //Current
-      engine::current_value(index,"I_LTCA_LocustAL_LN_Bazhenov2001",(gca * pow ( m , 2) * h * ( v - eca ) ));
+      engine::neuron_value(index,"I_LTCA_LocustAL_LN_Bazhenov2001",(gca * pow ( m , 2) * h * ( v - eca ) ));
 
     }
-  }
+  };
 }
+#endif

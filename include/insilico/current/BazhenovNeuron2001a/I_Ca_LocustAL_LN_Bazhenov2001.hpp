@@ -36,13 +36,13 @@ namespace insilico{
       double tau_r = 5.0;
       double d = 0.1;
 
-      int ca_index = engine::neuron(index, 'I_Ca_LocustAL_LN_Bazhenov2001');
-      int ltca_index = engine::neuron(index, 'I_LTCA_LocustAL_LN_Bazhenov2001');
+      int ca_index = engine::neuron_index(index, "I_Ca_LocustAL_LN_Bazhenov2001");
+      int ltca_index = engine::neuron_index(index, "I_LTCA_LocustAL_LN_Bazhenov2001");
 
       double ca = variables[ca_index];
       double ltca = variables[ltca_index];
 
-      double drive = -ltca*10.0/(2.0*96489.0*0.1);
+      double drive = -ltca*10.0/(2.0*96489.0*d);
 
       if (drive < 0.0){
 	drive = 0.0;
@@ -51,5 +51,6 @@ namespace insilico{
       dxdt[ca_index] = drive + (ca_inf - ca)/tau_r;
 
     }//function current
-  }//class I_Ca_LocustAL_LN_Bazhenov2001
+  };//class I_Ca_LocustAL_LN_Bazhenov2001
 }//insilico
+#endif

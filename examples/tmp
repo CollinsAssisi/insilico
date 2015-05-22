@@ -1,0 +1,3 @@
+cd SingleNeuron_HH1952; make -B
+make[1]: Entering directory `/data/insilico/examples/SingleNeuron_HH1952'
+g++ -O3 -std=c++11 -Wall -I../../include -o insilico.out /data/insilico/examples/LocustAntennalLobe_Bazhenov2001/main.cpp
