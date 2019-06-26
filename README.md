@@ -6,7 +6,6 @@
 
 `insilico` is a Computational Neuroscience simulation library written in C++.
 
-Library homepage: http://www.iiserpune.ac.in/~collins/insilico/
 
 Install
 =======
